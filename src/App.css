@@ -26,7 +26,15 @@
 .header {
   background: #007bff;
   color: white;
-  padding: 40px 20px;
+  padding: 20px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .header h1 {
@@ -40,8 +48,47 @@
   opacity: 0.9;
 }
 
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.sign-out-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.sign-out-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
 .content {
   padding: 40px 20px;
+}
+
+.welcome-message {
+  background: rgba(40, 167, 69, 0.1);
+  border: 1px solid rgba(40, 167, 69, 0.2);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.welcome-message h3 {
+  color: #28a745;
+  margin: 0 0 10px 0;
+}
+
+.welcome-message p {
+  color: #666;
+  margin: 0;
 }
 
 .services {
@@ -88,8 +135,8 @@
 }
 
 .success-message {
-  background: rgba(40, 167, 69, 0.1);
-  border: 1px solid rgba(40, 167, 69, 0.2);
+  background: rgba(23, 162, 184, 0.1);
+  border: 1px solid rgba(23, 162, 184, 0.2);
   border-radius: 8px;
   padding: 30px;
   text-align: center;
@@ -101,7 +148,7 @@
 }
 
 .success-message h5 {
-  color: #28a745;
+  color: #17a2b8;
   margin-bottom: 20px;
   font-size: 1.3rem;
 }
@@ -119,6 +166,11 @@
 }
 
 @media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
   .services {
     grid-template-columns: 1fr;
   }
