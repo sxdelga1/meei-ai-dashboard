@@ -48,47 +48,68 @@
   opacity: 0.9;
 }
 
-.user-info {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.sign-out-btn {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+.status-badge {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
   padding: 8px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.sign-out-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 193, 7, 0.3);
 }
 
 .content {
   padding: 40px 20px;
 }
 
-.welcome-message {
-  background: rgba(40, 167, 69, 0.1);
-  border: 1px solid rgba(40, 167, 69, 0.2);
+.progress-message {
+  background: rgba(23, 162, 184, 0.1);
+  border: 1px solid rgba(23, 162, 184, 0.2);
   border-radius: 8px;
-  padding: 20px;
+  padding: 30px;
   margin-bottom: 30px;
 }
 
-.welcome-message h3 {
-  color: #28a745;
-  margin: 0 0 10px 0;
+.progress-message h3 {
+  color: #17a2b8;
+  margin: 0 0 20px 0;
 }
 
-.welcome-message p {
-  color: #666;
-  margin: 0;
+.progress-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.step {
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.step.completed {
+  background: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+  border: 1px solid rgba(40, 167, 69, 0.2);
+}
+
+.step.in-progress {
+  background: rgba(255, 193, 7, 0.1);
+  color: #ffc107;
+  border: 1px solid rgba(255, 193, 7, 0.2);
+  animation: pulse 2s infinite;
+}
+
+.step.pending {
+  background: rgba(108, 117, 125, 0.1);
+  color: #6c757d;
+  border: 1px solid rgba(108, 117, 125, 0.2);
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
 }
 
 .services {
@@ -103,11 +124,7 @@
   border-radius: 8px;
   padding: 30px 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  opacity: 0.7;
 }
 
 .service-card .icon {
@@ -126,29 +143,30 @@
 }
 
 .service-card button {
-  background: #6c757d;
-  color: white;
+  background: #ffc107;
+  color: #333;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: not-allowed;
+  font-size: 0.9rem;
 }
 
-.success-message {
-  background: rgba(23, 162, 184, 0.1);
-  border: 1px solid rgba(23, 162, 184, 0.2);
+.info-message {
+  background: rgba(108, 117, 125, 0.1);
+  border: 1px solid rgba(108, 117, 125, 0.2);
   border-radius: 8px;
   padding: 30px;
   text-align: center;
 }
 
-.success-message .icon {
+.info-message .icon {
   font-size: 2.5rem;
   margin-bottom: 15px;
 }
 
-.success-message h5 {
-  color: #17a2b8;
+.info-message h5 {
+  color: #6c757d;
   margin-bottom: 20px;
   font-size: 1.3rem;
 }
@@ -163,12 +181,17 @@
 .features div {
   color: #666;
   font-size: 0.9rem;
+  padding: 5px;
 }
 
 @media (max-width: 768px) {
   .header-content {
     flex-direction: column;
     text-align: center;
+  }
+  
+  .progress-steps {
+    grid-template-columns: 1fr;
   }
   
   .services {
@@ -181,5 +204,9 @@
   
   .header h1 {
     font-size: 2rem;
+  }
+  
+  .status-badge {
+    margin-top: 10px;
   }
 }
